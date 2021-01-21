@@ -9,91 +9,91 @@ const ejercicioGramaticaService = new EjercicioGramaticaService();
 
 //List ejercicios
 router.get("/", async function (req, res, next) {
-  try {
-    const ejercicios = await ejercicioGramaticaService.getAllEjerciciosGramatica();
+    try {
+        const ejercicios = await ejercicioGramaticaService.getAllEjerciciosGramatica();
 
-    res.status(200).json({
-      data: ejercicios,
-      message: "ejercicios listed",
-    });
-  } catch (err) {
-    next(err);
-  }
+        res.status(200).json({
+            data: ejercicios,
+            message: "ejercicios listed",
+        });
+    } catch (err) {
+        next(err);
+    }
 });
 
 //Retrieve ejercicio
 router.get("/:id", async function (req, res, next) {
-  try {
-    const { id } = req.params;
-    const retrievedEjercicio = await ejercicioGramaticaService.getEjercicioGramatica(
-      { id }
-    );
+    try {
+        const { id } = req.params;
+        const retrievedEjercicio = await ejercicioGramaticaService.getEjercicioGramatica(
+            { id }
+        );
 
-    res.status(200).json({
-      data: retrievedEjercicio,
-      message: "ejercicio retrieved",
-    });
-  } catch (err) {
-    next(err);
-  }
+        res.status(200).json({
+            data: retrievedEjercicio,
+            message: "ejercicio retrieved",
+        });
+    } catch (err) {
+        next(err);
+    }
 });
 
 //Create a note
 router.post("/", async function (req, res, next) {
-  try {
-    const { body: ejercicio } = req;
-    const createdEjercicio = await ejercicioGramaticaService.createEjercicioGramatica(
-      {
-        ejercicio,
-      }
-    );
+    try {
+        const { body: ejercicio } = req;
+        const createdEjercicio = await ejercicioGramaticaService.createEjercicioGramatica(
+            {
+                ejercicio,
+            }
+        );
 
-    res.status(200).json({
-      data: createdEjercicio,
-      message: "ejercicio created",
-    });
-  } catch (err) {
-    next(err);
-  }
+        res.status(200).json({
+            data: createdEjercicio,
+            message: "ejercicio created",
+        });
+    } catch (err) {
+        next(err);
+    }
 });
 
 //Update a note
 router.patch("/:id", async function (req, res, next) {
-  try {
-    const { id } = req.params;
-    const { body: ejercicio } = req;
+    try {
+        const { id } = req.params;
+        const { body: ejercicio } = req;
 
-    const updatedEjercicio = await ejercicioGramaticaService.updateEjercicioGramatica(
-      {
-        id,
-        ejercicio,
-      }
-    );
+        const updatedEjercicio = await ejercicioGramaticaService.updateEjercicioGramatica(
+            {
+                id,
+                ejercicio,
+            }
+        );
 
-    res.status(200).json({
-      data: updatedEjercicio,
-      message: "ejercicio updated",
-    });
-  } catch (err) {
-    next(err);
-  }
+        res.status(200).json({
+            data: updatedEjercicio,
+            message: "ejercicio updated",
+        });
+    } catch (err) {
+        next(err);
+    }
 });
 
 //Delete a note
 router.delete("/:id", async function (req, res, next) {
-  try {
-    const { id } = req.params;
-    const deletedEjercicio = await ejercicioGramaticaService.deleteEjercicioGramatica(
-      { id }
-    );
+    try {
+        const { id } = req.params;
+        const deletedEjercicio = await ejercicioGramaticaService.deleteEjercicioGramatica(
+            { id }
+        );
 
-    res.status(200).json({
-      data: deletedEjercicio,
-      message: "note deleted",
-    });
-  } catch (err) {
-    next(err);
-  }
+        res.status(200).json({
+            data: deletedEjercicio,
+            message: "note deleted",
+        });
+    } catch (err) {
+        next(err);
+    }
 });
 
 module.exports = router;

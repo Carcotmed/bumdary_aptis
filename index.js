@@ -5,7 +5,7 @@ const app = express();
 const { config } = require("./config/index");
 
 app.get("/", function (req, res) {
-  res.send("hello world");
+    res.send("hello world");
 });
 
 const notesApi = require("./routes/notes.js");
@@ -18,5 +18,5 @@ notesApi(app);
 aptisApi(app);
 
 app.listen(config.port, function () {
-  console.log(`Listening http://localhost:${config.port}`);
+    console.log(`Listening http://localhost:${config.port}`);
 });
