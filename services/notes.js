@@ -5,6 +5,7 @@ class NotesService {
         this.collection = 'notes';
         this.mongoDB = new MongoLib();
     }
+
     async getNotes({ tags } = {}) {
         const query = tags && { tags: { $in: tags } };
         const notes = await this.mongoDB.getAll(this.collection, query);
@@ -31,11 +32,6 @@ class NotesService {
         return deletedNoteId;
     }
 
-    async deleteAllNotes() {
-        const deletedAll = await this.mongoDb.deleteAll(this.collection);
-        console.log(deletedAll)
-        return deletedAll;
-    }
 }
 
 module.exports = NotesService;

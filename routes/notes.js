@@ -99,23 +99,6 @@ function notesApi(app) {
 
     });
 
-    //Delete all notes
-    router.delete("/", async function(req, res, next) {
-
-        try {
-            const allDeleted = await notesService.deleteAllNotes();
-
-            res.status(200).json({
-                data: allDeleted,
-                message: 'all notes deleted'
-            });
-
-        } catch(err){
-            next(err);
-        }
-
-    });
-
     
 };
 
