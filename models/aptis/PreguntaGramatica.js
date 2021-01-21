@@ -16,11 +16,16 @@ const schema = new mongoose.Schema(
       required: true,
     },
     answer: {
-        desc: "The question's answer position",
-        trim: true,
-        type: Number,
-        required: true,
-      },
+      desc: "The question's answer position",
+      trim: true,
+      type: Number,
+      required: true,
+    },
+    ejercicio: {
+      desc: "The question's exercise",
+      type: ObjectID,
+      required: true,
+    },
   },
   {
     strict: true,
@@ -29,5 +34,4 @@ const schema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('PreguntaGramatica', schema);
-
+module.exports = mongoose.model("PreguntaGramatica", schema);
