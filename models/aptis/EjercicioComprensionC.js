@@ -1,6 +1,12 @@
 const mongoose = require("../../lib/mongoose");
+const { ObjectID } = require("mongodb");
 const schema = new mongoose.Schema(
     {
+        documento: {
+            desc: "The document this exercise belongs to",
+            type: ObjectID,
+            required: true,
+        },
         titulo_ejercicio: {
             desc: "The exercise's text",
             trim: true,

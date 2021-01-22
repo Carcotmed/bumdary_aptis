@@ -5,12 +5,12 @@ class EjercicioWritingTextService {
         return await EjercicioWritingText.find();
     }
 
-    async getEjerciciosWritingTextByEjercicio({ id }) {
-        return await EjercicioWritingText.find({ ejercicio: id });
-    }
-
     async getEjercicioWritingText({ id }) {
         return await EjercicioWritingText.findById(id);
+    }
+
+    async getEjerciciosWritingTextByDocumento({ id }) {
+        return await EjercicioWritingText.find({ documento: id });
     }
 
     async createEjercicioWritingText({ pregunta }) {

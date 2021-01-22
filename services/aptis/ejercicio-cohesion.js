@@ -9,6 +9,10 @@ class EjercicioCohesionService {
         return await EjercicioCohesion.findById(id);
     }
 
+    async getEjerciciosCohesionByDocumento({ id }) {
+        return await EjercicioCohesion.find({ documento: id });
+    }
+
     async createEjercicioCohesion({ ejercicio }) {
         const createdEjercicio = new EjercicioCohesion(ejercicio);
 

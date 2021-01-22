@@ -5,12 +5,12 @@ class EjercicioSpeakingService {
         return await EjercicioSpeaking.find();
     }
 
-    async getEjerciciosSpeakingByEjercicio({ id }) {
-        return await EjercicioSpeaking.find({ ejercicio: id });
-    }
-
     async getEjercicioSpeaking({ id }) {
         return await EjercicioSpeaking.findById(id);
+    }
+
+    async getEjerciciosSpeakingByDocumento({ id }) {
+        return await EjercicioSpeaking.find({ documento: id });
     }
 
     async createEjercicioSpeaking({ pregunta }) {

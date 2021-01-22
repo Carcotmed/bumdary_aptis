@@ -12,6 +12,10 @@ class EjercicioChoicesService {
         return await EjercicioChoices.findById(id);
     }
 
+    async getEjerciciosChoicesByDocumento({ id }) {
+        return await PreguntaChoices.find({ documento: id });
+    }
+
     async createEjercicioChoices({ ejercicio }) {
         const createdEjercicio = new EjercicioChoices(ejercicio);
         return await createdEjercicio.save();

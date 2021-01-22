@@ -9,6 +9,10 @@ class EjercicioComprensionLService {
         return await EjercicioComprensionL.findById(id);
     }
 
+    async getEjerciciosComprensionLByDocumento({ id }) {
+        return await EjercicioComprensionL.find({ documento: id });
+    }
+
     async createEjercicioComprensionL({ ejercicio }) {
         const createdEjercicio = new EjercicioComprensionL(ejercicio);
 
