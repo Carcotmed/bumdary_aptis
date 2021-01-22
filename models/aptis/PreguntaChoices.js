@@ -2,8 +2,15 @@ const { ObjectID } = require("mongodb");
 const mongoose = require("../../lib/mongoose");
 const schema = new mongoose.Schema(
     {
-        text: {
-            desc: "The question's text",
+        text_before: {
+            desc: "The question's text before the answers",
+            trim: true,
+            type: String,
+            index: true,
+            required: true,
+        },
+        text_after: {
+            desc: "The question's text before the answers",
             trim: true,
             type: String,
             index: true,

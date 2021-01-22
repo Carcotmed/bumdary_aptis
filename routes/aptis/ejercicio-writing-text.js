@@ -1,16 +1,16 @@
 const express = require("express");
-const EjercicioGramaticaService = require("../../services/ejercicio-gramatica");
+const EjercicioWritingTextService = require("../../services/aptis/ejercicio-choices");
 
 const router = express.Router();
 
-const ejercicioGramaticaService = new EjercicioGramaticaService();
+const ejercicioWritingTextService = new EjercicioWritingTextService();
 
 //Ejercicio gramática
 
 //List ejercicios
 router.get("/", async function (req, res, next) {
     try {
-        const ejercicios = await ejercicioGramaticaService.getAllEjerciciosGramatica();
+        const ejercicios = await ejercicioWritingTextService.getAllEjerciciosWritingText();
 
         res.status(200).json({
             data: ejercicios,
@@ -25,7 +25,7 @@ router.get("/", async function (req, res, next) {
 router.get("/:id", async function (req, res, next) {
     try {
         const { id } = req.params;
-        const retrievedEjercicio = await ejercicioGramaticaService.getEjercicioGramatica(
+        const retrievedEjercicio = await ejercicioWritingTextService.getEjercicioWritingText(
             { id }
         );
 
@@ -42,7 +42,7 @@ router.get("/:id", async function (req, res, next) {
 router.post("/", async function (req, res, next) {
     try {
         const { body: ejercicio } = req;
-        const createdEjercicio = await ejercicioGramaticaService.createEjercicioGramatica(
+        const createdEjercicio = await ejercicioWritingTextService.createEjercicioWritingText(
             {
                 ejercicio,
             }
@@ -63,7 +63,7 @@ router.patch("/:id", async function (req, res, next) {
         const { id } = req.params;
         const { body: ejercicio } = req;
 
-        const updatedEjercicio = await ejercicioGramaticaService.updateEjercicioGramatica(
+        const updatedEjercicio = await ejercicioWritingTextService.updateEjercicioWritingText(
             {
                 id,
                 ejercicio,
@@ -83,7 +83,7 @@ router.patch("/:id", async function (req, res, next) {
 router.delete("/:id", async function (req, res, next) {
     try {
         const { id } = req.params;
-        const deletedEjercicio = await ejercicioGramaticaService.deleteEjercicioGramatica(
+        const deletedEjercicio = await ejercicioWritingTextService.deleteEjercicioWritingText(
             { id }
         );
 

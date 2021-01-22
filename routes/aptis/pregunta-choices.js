@@ -1,16 +1,16 @@
 const express = require("express");
-const PreguntaGramaticaService = require("../../services/pregunta-gramatica");
+const PreguntaChoicesService = require("../../services/aptis/pregunta-choices");
 
 const router = express.Router();
 
-const preguntaGramaticaService = new PreguntaGramaticaService();
+const preguntaChoicesService = new PreguntaChoicesService();
 
 //Pregunta gramática
 
 //List preguntas
 router.get("/", async function (req, res, next) {
     try {
-        const preguntas = await preguntaGramaticaService.getAllPreguntasGramatica();
+        const preguntas = await preguntaChoicesService.getAllPreguntasChoices();
 
         res.status(200).json({
             data: preguntas,
@@ -25,7 +25,7 @@ router.get("/", async function (req, res, next) {
 router.get("/:id", async function (req, res, next) {
     try {
         const { id } = req.params;
-        const retrievedPregunta = await preguntaGramaticaService.getPreguntaGramatica(
+        const retrievedPregunta = await preguntaChoicesService.getPreguntaChoices(
             { id }
         );
 
@@ -42,7 +42,7 @@ router.get("/:id", async function (req, res, next) {
 router.post("/", async function (req, res, next) {
     try {
         const { body: pregunta } = req;
-        const createdPregunta = await preguntaGramaticaService.createPreguntaGramatica(
+        const createdPregunta = await preguntaChoicesService.createPreguntaChoices(
             {
                 pregunta,
             }
@@ -63,7 +63,7 @@ router.patch("/:id", async function (req, res, next) {
         const { id } = req.params;
         const { body: pregunta } = req;
 
-        const updatedPregunta = await preguntaGramaticaService.updatePreguntaGramatica(
+        const updatedPregunta = await preguntaChoicesService.updatePreguntaChoices(
             {
                 id,
                 pregunta,
@@ -83,7 +83,7 @@ router.patch("/:id", async function (req, res, next) {
 router.delete("/:id", async function (req, res, next) {
     try {
         const { id } = req.params;
-        const deletedPregunta = await preguntaGramaticaService.deletePreguntaGramatica(
+        const deletedPregunta = await preguntaChoicesService.deletePreguntaChoices(
             { id }
         );
 
@@ -100,7 +100,7 @@ router.delete("/:id", async function (req, res, next) {
 router.get("/test/:id", async function (req, res, next) {
     try {
         const { id } = req.params;
-        const preguntasByEjercicio = await preguntaGramaticaService.getPreguntasGramaticaByEjercicio(
+        const preguntasByEjercicio = await preguntaChoicesService.getPreguntasChoicesByEjercicio(
             { id }
         );
 
