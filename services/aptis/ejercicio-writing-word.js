@@ -13,14 +13,14 @@ class EjercicioWritingWordService {
         return await EjercicioWritingWord.find({ document: id });
     }
 
-    async createEjercicioWritingWord({ pregunta }) {
-        const createdEjercicio = new EjercicioWritingWord(pregunta);
+    async createEjercicioWritingWord({ ejercicio }) {
+        const createdEjercicio = new EjercicioWritingWord(ejercicio);
 
         return await createdEjercicio.save();
     }
 
-    async updateEjercicioWritingWord({ id, pregunta } = {}) {
-        return await EjercicioWritingWord.findByIdAndUpdate(id, pregunta, {
+    async updateEjercicioWritingWord({ id, ejercicio } = {}) {
+        return await EjercicioWritingWord.findByIdAndUpdate(id, ejercicio, {
             new: true,
         });
     }

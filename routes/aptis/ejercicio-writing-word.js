@@ -1,5 +1,5 @@
 const express = require("express");
-const EjercicioWritingWordService = require("../../services/aptis/ejercicio-choices");
+const EjercicioWritingWordService = require("../../services/aptis/ejercicio-writing-word");
 
 const router = express.Router();
 

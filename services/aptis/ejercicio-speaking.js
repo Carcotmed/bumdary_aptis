@@ -13,14 +13,14 @@ class EjercicioSpeakingService {
         return await EjercicioSpeaking.find({ documento: id });
     }
 
-    async createEjercicioSpeaking({ pregunta }) {
-        const createdEjercicio = new EjercicioSpeaking(pregunta);
+    async createEjercicioSpeaking({ ejercicio }) {
+        const createdEjercicio = new EjercicioSpeaking(ejercicio);
 
         return await createdEjercicio.save();
     }
 
-    async updateEjercicioSpeaking({ id, pregunta } = {}) {
-        return await EjercicioSpeaking.findByIdAndUpdate(id, pregunta, {
+    async updateEjercicioSpeaking({ id, ejercicio } = {}) {
+        return await EjercicioSpeaking.findByIdAndUpdate(id, ejercicio, {
             new: true,
         });
     }

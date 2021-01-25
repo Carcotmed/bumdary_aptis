@@ -11,21 +11,22 @@ const schema = new mongoose.Schema(
             desc: "The exercise's instructions",
             trim: true,
             type: String,
-            required: true,
+            required: "Please add some instructions",
         },
         falsas: {
             desc: "The exercise's wrong answers",
             type: [String],
             required: true,
         },
-        opciones: {
-            desc: "The exercise's possible answers",
-            type: [String],
-            required: true,
-        },
         correcta: {
             desc: "The correct answer from all the options",
             type: String,
+            required: true,
+            default: false,
+        },
+        draft: {
+            desc: "Wether the exercise is ready",
+            type: Boolean,
             required: true,
             default: false,
         },

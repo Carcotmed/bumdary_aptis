@@ -1,16 +1,14 @@
 const express = require("express");
-const EjercicioSpeakingService = require("../../services/aptis/ejercicio-speaking");
+const EjercicioListeningService = require("../../services/aptis/ejercicio-listening");
 
 const router = express.Router();
 
-const ejercicioSpeakingService = new EjercicioSpeakingService();
-
-//Ejercicio gramática
+const ejercicioListeningService = new EjercicioListeningService();
 
 //List ejercicios
 router.get("/", async function (req, res, next) {
     try {
-        const ejercicios = await ejercicioSpeakingService.getAllEjerciciosSpeaking();
+        const ejercicios = await ejercicioListeningService.getAllEjerciciosListening();
 
         res.status(200).json({
             data: ejercicios,
@@ -25,7 +23,7 @@ router.get("/", async function (req, res, next) {
 router.get("/:id", async function (req, res, next) {
     try {
         const { id } = req.params;
-        const retrievedEjercicio = await ejercicioSpeakingService.getEjercicioSpeaking(
+        const retrievedEjercicio = await ejercicioListeningService.getEjercicioListening(
             { id }
         );
 
@@ -42,7 +40,7 @@ router.get("/:id", async function (req, res, next) {
 router.post("/", async function (req, res, next) {
     try {
         const { body: ejercicio } = req;
-        const createdEjercicio = await ejercicioSpeakingService.createEjercicioSpeaking(
+        const createdEjercicio = await ejercicioListeningService.createEjercicioListening(
             {
                 ejercicio,
             }
@@ -63,7 +61,7 @@ router.patch("/:id", async function (req, res, next) {
         const { id } = req.params;
         const { body: ejercicio } = req;
 
-        const updatedEjercicio = await ejercicioSpeakingService.updateEjercicioSpeaking(
+        const updatedEjercicio = await ejercicioListeningService.updateEjercicioListening(
             {
                 id,
                 ejercicio,
@@ -83,7 +81,7 @@ router.patch("/:id", async function (req, res, next) {
 router.delete("/:id", async function (req, res, next) {
     try {
         const { id } = req.params;
-        const deletedEjercicio = await ejercicioSpeakingService.deleteEjercicioSpeaking(
+        const deletedEjercicio = await ejercicioListeningService.deleteEjercicioListening(
             { id }
         );
 

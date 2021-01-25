@@ -38,4 +38,4 @@ const schema = new mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model("EjercicioWritingText", schema);
+module.exports = mongoose.model("EjercicioSpeaking", schema);

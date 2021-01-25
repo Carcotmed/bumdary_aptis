@@ -16,7 +16,7 @@ const schema = new mongoose.Schema(
         pregunta_ej: {
             desc: "The exercise's example question text",
             trim: true,
-            type: (String, String),
+            type: String,
             required: false,
         },
         respuesta_ej: {
