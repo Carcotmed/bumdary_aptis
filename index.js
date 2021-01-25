@@ -11,10 +11,18 @@ const { config } = require("./config/index");
 
 const aptisApi = require("./routes/aptis.js");
 
+const authRoutes = require("./routes/auth.js")
+
+const { ensureAuthenticated } = require("./utils/middleware/authHandler")
+
 
 app.use(cors(corsOptions));
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
+
+authRoutes(app);
+
+app.use(ensureAuthenticated)
 
 aptisApi(app);
 

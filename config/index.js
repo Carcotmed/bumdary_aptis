@@ -9,6 +9,7 @@ const config = {
     dbPassword: process.env.DB_PASSWORD,
     dbHost: process.env.DB_HOST,
     dbName: process.env.DB_NAME,
+    tokenSecret: process.env.TOKEN_SECRET || "tokenultrasecreto"
 };
 
 module.exports = { config };
