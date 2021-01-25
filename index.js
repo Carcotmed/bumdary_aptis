@@ -1,6 +1,10 @@
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
+
+const corsOptions = { origin: "http://example.com" };
+app.use(cors(corsOptions));
 
 const { config } = require("./config/index");
 
