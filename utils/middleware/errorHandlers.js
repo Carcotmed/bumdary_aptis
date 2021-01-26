@@ -2,7 +2,7 @@ const { config } = require("../../config");
 
 function withErrorStack(err, stack) {
     if (config.dev) {
-        return {err, stack}
+        return { err, stack };
     } else {
         return err;
     }
@@ -21,5 +21,5 @@ function errorHandler(err, req, res, next) {
 module.exports = {
     logErrors,
     errorHandler,
-    withErrorStack
-}
+    withErrorStack,
+};

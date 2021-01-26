@@ -33,11 +33,11 @@ const schema = new mongoose.Schema(
         draft: {
             desc: "Wether the exercise is ready",
             type: Boolean,
-            required:true,
+            required: true,
             default: false,
-        }
+        },
     },
-    
+
     {
         strict: true,
         versionKey: false,

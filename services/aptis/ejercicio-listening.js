@@ -14,7 +14,6 @@ class EjercicioListeningService {
     }
 
     async createEjercicioListening({ ejercicio }) {
-        console.log(ejercicio)
         const createdEjercicio = new EjercicioListening(ejercicio);
 
         return await createdEjercicio.save();

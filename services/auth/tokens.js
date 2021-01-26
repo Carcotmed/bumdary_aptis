@@ -3,8 +3,7 @@ var moment = require("moment");
 const { config } = require("../../config/index");
 
 class TokensService {
-
-    createToken (user) {
+    createToken(user) {
         var payload = {
             sub: user._id,
             iat: moment().unix(),
@@ -14,9 +13,7 @@ class TokensService {
         var token = jwt.encode(payload, config.tokenSecret);
 
         return token;
-    };
-
+    }
 }
 
-
-module.exports = TokensService
+module.exports = TokensService;

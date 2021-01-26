@@ -7,11 +7,9 @@ function ensureAuthenticated(req, res, next) {
         const { authorization: token } = req.headers;
 
         if (!token || token == "{{auth_token}}") {
-            return res
-                .status(403)
-                .send({
-                    message: "Tu petición no tiene cabecera de autorización",
-                });
+            return res.status(403).send({
+                message: "Tu petición no tiene cabecera de autorización",
+            });
         }
 
         var payload = jwt.decode(token, config.tokenSecret);
