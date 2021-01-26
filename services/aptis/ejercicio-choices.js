@@ -13,7 +13,7 @@ class EjercicioChoicesService {
     }
 
     async getEjerciciosChoicesByDocumento({ id }) {
-        return await PreguntaChoices.find({ documento: id });
+        return await EjercicioChoices.find({ documento: id });
     }
 
     async createEjercicioChoices({ ejercicio }) {

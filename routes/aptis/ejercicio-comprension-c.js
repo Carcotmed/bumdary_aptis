@@ -36,6 +36,23 @@ router.get("/:id", async function (req, res, next) {
     }
 });
 
+//Retrieve ejercicio
+router.get("/documento/:id", async function (req, res, next) {
+    try {
+        const { id } = req.params;
+        const retrievedEjercicio = await ejercicioComprensionCService.getEjerciciosComprensionCByDocumento(
+            { id }
+        );
+
+        res.status(200).json({
+            data: retrievedEjercicio,
+            message: "ejercicio retrieved",
+        });
+    } catch (err) {
+        next(err);
+    }
+});
+
 //Create a note
 router.post("/", async function (req, res, next) {
     try {
