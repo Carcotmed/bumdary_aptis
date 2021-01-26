@@ -30,15 +30,15 @@ router.post("/signup", async function (req, res, next) {
 router.post("/login", async function (req, res, next) {
 
     try {
-        const { user } = req.params;
-        const retrievedUser = await usersService.checkUsuario(
+        const { body: user } = req;
+        const retrievedUser = await usersService.checkUser(
             { user }
         );
+        const createdToken = await tokensService.createToken(retrievedUser);
 
         res.status(200).json({
-            data: retrievedUser,
             message: "user retrieved",
-            token: tokensService.createToken(createdUser)
+            token: createdToken
         });
     } catch (err) {
         next(err);

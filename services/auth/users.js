@@ -7,18 +7,21 @@ class UsersService {
     }
 
     async checkUser({ user }) {
+        const { user: userValue, password: passwordValue } = user;
 
-        retrievedUser = await User.findOne(user);
+        const retrievedUser = await User.findOne({ user: userValue });
+
         if (retrievedUser) {
-            if (retrievedUser.authenticate(user.password)) {
+
+            if (await retrievedUser.comparePassword(passwordValue)) {
                 return retrievedUser;
             } else {
-                return new Error("Wrong password");
+                throw new Error("Incorrect password");
             }
+            
         } else {
-            return new Error("No user found");
+            throw new Error("No user found");
         }
-
     }
 }
 
