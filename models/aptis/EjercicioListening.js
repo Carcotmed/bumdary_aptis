@@ -1,7 +1,15 @@
 const mongoose = require("../../lib/mongoose");
 const { ObjectID } = require("mongodb");
+
+const categoriaId = "";
 const schema = new mongoose.Schema(
     {
+        categoria: {
+            desc: "The document this exercise belongs to",
+            type: ObjectID,
+            required: true,
+            default: categoriaId
+        },
         documento: {
             desc: "The document this exercise belongs to",
             type: ObjectID,
@@ -12,6 +20,11 @@ const schema = new mongoose.Schema(
             trim: true,
             type: String,
             required: "Please add some instructions",
+        },
+        audio: {
+            desc: "The exercises' audio uri",
+            type: String,
+            required: true,
         },
         falsas: {
             desc: "The exercise's wrong answers",
